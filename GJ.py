@@ -48,7 +48,7 @@ class GJ:
                     self.matrix[j][k] += row[k]
                 row = self.matrix[i]
 
-    def pure_strategy(self):
+    def gj_solving(self):
         """
         Find pure solution to matrix game.
         :return: tuple of lists
@@ -67,7 +67,7 @@ class GJ:
         Represent the solution to the game and value.
         :return: String
         """
-        ans = self.pure_strategy()
+        ans = self.gj_solving()
         first_player = str()
         second_player = str()
         for i in range(len(ans[1])):
