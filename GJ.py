@@ -1,14 +1,10 @@
 from MatrixOperation import MatrixOperation
 
 
-class PureStrategy:
+class GJ:
     """
     Class to solve games with zero-sum and two players without saddle point
-    using pure strategy.
-    There are three methods implemented there to solve such games:
-    1). Using Gauss-Jordan Elimination
-    2). Using Simplex method by tables
-    3). Using Simplex method by LU-factorization
+    using mixed strategy by GJ elimination.
     """
     def __init__(self, matrix):
         """
@@ -58,7 +54,7 @@ class PureStrategy:
         :return: tuple of lists
         """
         tr = MatrixOperation(self.matrix)
-        an_pl = PureStrategy(tr.transpose())
+        an_pl = GJ(tr.transpose())
         self.transform()
         self.gj_method()
         an_pl.transform()
@@ -82,8 +78,9 @@ class PureStrategy:
 
 
 if __name__ == "__main__":
-    a = PureStrategy([[0,-1,1],
-                      [1,0,-1],
-                      [-1,1,0],
-                      ])
+    a = GJ([[0,1,-1,2],
+            [-1,0,3,2],
+            [0,1,2,-1],
+            [2,0,0,0]
+            ])
     print(a)
